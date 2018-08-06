@@ -20,18 +20,8 @@ namespace Auth.Service
 
             services.AddIdentityServer()
                     .AddDeveloperSigningCredential()
-                    .AddInMemoryApiResources(
-                        new List<ApiResource> {
-                            new ApiResource("api-gw", "Api Gateway"),
-                            new ApiResource("svc1", "Service1"), // TODO: check if we need this?
-                            new ApiResource("svc2", "Service2")
-                        }) //which APIs are allowed to use this Auth server
-                    .AddInMemoryClients(new List<Client>{
-                new Client {
-                    ClientId = "web-app",
-
-                }
-            }); // clients are allowed to use this Auth server
+                    .AddInMemoryApiResources(InMemoryConfiguration.GetApiResources()) //which APIs are allowed to use this Auth server
+                    .AddInMemoryClients(InMemoryConfiguration.GetClients()); // clients are allowed to use this Auth server
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
