@@ -36,7 +36,11 @@ namespace Auth.Service
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
+
             app.UseIdentityServer();
+
+            app.UseMvcWithDefaultRoute();
 
             // open http://localhost:5000/.well-known/openid-configuration
         }
