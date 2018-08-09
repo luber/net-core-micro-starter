@@ -19,9 +19,13 @@ namespace Auth.Service
             services.AddMvc();
 
             services.AddIdentityServer()
-                    .AddDeveloperSigningCredential()
+                    .AddDeveloperSigningCredential() // TODO: Replace before production!
+                    // TODO: Before production replace all this with Persistent Store
+                    .AddTestUsers(InMemoryConfiguration.GetTestUsers()) // clients are allowed to use this Auth server
+                    .AddInMemoryIdentityResources(InMemoryConfiguration.GetIdentityResources())
                     .AddInMemoryApiResources(InMemoryConfiguration.GetApiResources()) //which APIs are allowed to use this Auth server
-                    .AddInMemoryClients(InMemoryConfiguration.GetClients()); // clients are allowed to use this Auth server
+                    .AddInMemoryClients(InMemoryConfiguration.GetClients());
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,10 +38,7 @@ namespace Auth.Service
 
             app.UseIdentityServer();
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
+            // open http://localhost:5000/.well-known/openid-configuration
         }
     }
 }
