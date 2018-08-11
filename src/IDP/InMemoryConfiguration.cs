@@ -128,7 +128,7 @@ namespace Auth.Service
                     //AllowOfflineAccess = true, // required for refresh_tokens
                     AccessTokenType = AccessTokenType.Jwt, // self-contained JWT
 
-                    RedirectUris =           { "http://localhost:7017/index.html" },
+                    RedirectUris =           { "http://localhost:7017/signin-oidc" },
                     PostLogoutRedirectUris = { "http://localhost:7017/index.html" },
                     //AllowedCorsOrigins =     { "http://localhost:7017" },
                     AllowedCorsOrigins =     { "*" },
@@ -137,6 +137,23 @@ namespace Auth.Service
 
                     AllowedScopes =
                     {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.Address,
+
+                        //"api1", "api2.read_only"
+                        "api-gw", "svc1", "svc2"
+                    }
+                },
+                new Client {
+                    ClientId = "webapp",
+                    ClientName = "asp.net core app",
+                    AllowedGrantTypes = GrantTypes.Hybrid, // best suits for server-side web apps
+                    RedirectUris = new List<string> {
+                        "https://localhost:43350/signin-oidc"
+                    },
+                    AllowedScopes = {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,

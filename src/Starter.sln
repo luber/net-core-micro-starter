@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDP", "IDP\IDP.csproj", "{8B2D640C-77F3-4578-BB44-2538DA78689E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC.Client", "MVC.Client\MVC.Client.csproj", "{A9CFBEE5-85E2-47F3-A495-2397FAFE0214}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{8B2D640C-77F3-4578-BB44-2538DA78689E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B2D640C-77F3-4578-BB44-2538DA78689E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B2D640C-77F3-4578-BB44-2538DA78689E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9CFBEE5-85E2-47F3-A495-2397FAFE0214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9CFBEE5-85E2-47F3-A495-2397FAFE0214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9CFBEE5-85E2-47F3-A495-2397FAFE0214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9CFBEE5-85E2-47F3-A495-2397FAFE0214}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
